@@ -1,0 +1,30 @@
+{
+  "name": "weNews",
+  "description": "微广场",
+  "author": {
+    "email": "312931671@qq.com",
+    "name": "daiyc",
+    "url": "https://daiyunchao.github.io/"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "graphql": "^14.3.1",
+    "graphql-compose": "^7.1.0",
+    "graphql-compose-mongoose": "^7.0.3",
+    "graphql-server-koa": "^1.4.0",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.12.0",
+    "koa-static": "^5.0.0",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.5.14",
+    "socket.io": "^2.2.0"
+  }
+}

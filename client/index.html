@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>微广场列表</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+  <div class="sequre_list">
+    <h1>微广场</h1>
+    <a id="goto_create">我要去去创建</a>
+    <ul id="sequare_list">
+    </ul>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="./js/index.js"></script>
+  <script>
+    getList = async () => {
+      return await common_gql_fetch(`
+      {
+        newsPagination(page:1,sort:CREATETIME_DESC){
+          count
+          items{
+            title
+            content
+            createTime
+            postUser{
+              uid
+              name
+              headImage
+              pwd
+            }
+          }
+        }
+      }
+      `)
+    }
+    init = async () => {
+      let data = await getList();
+      create_web_sockect();
+      if (data && data["data"]) {
+        let list = data["data"]["newsPagination"]["items"];
+        console.log("list==>", list);
+
+        let temp_list = '';
+        for (let index = 0; index < list.length; index++) {
+          const item = list[index];
+          temp_list += `<li class="news_item">
+            <div>
+              <img class="head_img" src="${item["postUser"]["headImage"]}"/>
+            </div>
+            <div>
+              <div class="user_name">${item["postUser"]['name']}</div>
+            <div class="content">${item['content']}</div>
+            <div class="time">${common_time_opt(item["createTime"])}</div>
+            </div>
+            
+            </li>`
+        }
+        //将内容添加到列表上去
+        document.querySelector("#sequare_list").innerHTML = temp_list;
+      }
+    }
+
+
+    document.getElementById('goto_create').onclick = () => {
+      let userInfoStr = localStorage.getItem('user_info');
+      if (!userInfoStr) {
+        //如果用户信息没有,则跳转到登录
+        window.location.href = '/login.html'
+      } else {
+        window.location.href = '/create.html'
+      }
+    }
+    init();
+  </script>
+
+</body>
+
+</html>

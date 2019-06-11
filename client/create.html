@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>创建新闻</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <div class="create_news">
+    <h2>发布新动态</h2>
+    <div class="create_news_rows">
+      <span>标题:</span><input id="title" type="text" placeholder="请输入标题">
+    </div>
+    <div class="create_news_rows">
+      <span>内容:</span> <textarea id="content" cols="30" rows="10"></textarea><br>
+    </div>
+
+    <button id="btn_send">发布</button>
+  </div>
+  <script src="./js/index.js"></script>
+  <script>
+    sendNews = async () => {
+      let title = document.getElementById('title').value;
+      let content = document.getElementById('content').value;
+      let userInfoStr = localStorage.getItem('user_info');
+      let userInfo = {};
+      if (userInfoStr) {
+        userInfo = JSON.parse(userInfoStr);
+      } else {
+        alert('用户信息错误请重新登录');
+        window.location.href = '/login.html';
+        return;
+      }
+      let response = await common_gql_fetch(`
+      mutation newsCreateOne($uid:String!){
+        newsCreateOne(record:{
+          uid:$uid,
+          title:"${title}",
+          content:"${content}",
+        }){
+          record{
+            nid,
+            uid
+          }
+        }
+      }
+      `, { uid: userInfo["uid"] },'newsCreateOne')
+      if (response && response.data && response.data.newsCreateOne && response.data.newsCreateOne.record && response.data.newsCreateOne.record.nid) {
+        alert('创建成功');
+        //跳转到首页
+        window.location.href = '/index.html';
+      }
+    }
+    document.getElementById("btn_send").onclick = sendNews;
+  </script>
+</body>
+
+</html>

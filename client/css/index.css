@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.register {
+  margin: 0 auto;
+  margin-top: 100px;
+  border: 1px solid #ccc;
+  width: 550px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.register h2 {
+  margin-top: 20px;
+}
+
+.register span {
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+}
+
+
+
+.register input {
+  height: 30px;
+  width: 400px;
+  margin: 20px 0 0 0;
+  padding-left: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  inset-inline: none;
+  outline: none;
+}
+
+textarea {
+  height: 200px !important;
+}
+
+.register button {
+  width: 200px;
+  height: 30px;
+  background: #28a745;
+  color: white;
+  outline: none;
+  border: 0px;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.register a {
+  font-size: 12px;
+}
+
+.sequre_list {
+  width: 550px;
+  margin: 0 auto;
+}
+
+.news_item {
+  list-style: none;
+  margin: 20px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.head_img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.user_name {
+  margin-bottom: 10px;
+  color: rgb(191, 200, 128);
+  font-weight: 600;
+}
+
+.create_news_rows {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.create_news_rows span{
+  display: inline-block;
+  width: 100px;
+}
+
+.create_news {
+  margin: 0 auto;
+  margin-top: 100px;
+  border: 1px solid #ccc;
+  width: 550px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.create_news h2 {
+  margin-top: 20px;
+}
+#goto_create{
+  color: rgb(76, 76, 213);
+}
+.create_news input, textarea {
+  height: 30px;
+  width: 400px;
+  margin: 20px 0 0 0;
+  padding-left: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  inset-inline: none;
+  outline: none;
+}
+#btn_send{
+  width: 100px;
+  height: 30px;
+  border: 0px;
+  border-radius: 5px;
+  background:#28a745;
+  color: white;
+  margin:20px 0px;
+}
+.time{
+  color: #ccc;
+  font-size: 12px;
+  margin-top: 10px;
+}

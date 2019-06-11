@@ -29,7 +29,7 @@ node app.js
 
 ![创建](https://github.com/daiyunchao/koa-graphql-compose-mongoose-websocket-practice/blob/master/%E6%95%88%E6%9E%9C%E5%9B%BE/create.jpg)
 
-![首页](https://github.com/daiyunchao/koa-graphql-compose-mongoose-websocket-practice/blob/master/%E6%95%88%E6%9E%9C%E5%9B%BE/index.jpg
+![首页](https://github.com/daiyunchao/koa-graphql-compose-mongoose-websocket-practice/blob/master/%E6%95%88%E6%9E%9C%E5%9B%BE/index.jpg)
 
 
 ### 记录
